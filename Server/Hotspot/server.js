@@ -42,7 +42,6 @@ function getCurrentDateTime() {
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 
-
 app.get('/', (req, res) => {
     const raspiDateTime = getCurrentDateTime();
 
@@ -104,17 +103,19 @@ app.get('/', (req, res) => {
                 };
                 ws.onmessage = (event) => {
                     const data = JSON.parse(event.data);
-                    clientDateTime = new Date(data.clientDateTime).toISOString();
-                    document.getElementById('clientTime').textContent = new Date(data.clientDateTime).toLocaleString();
+                    clientDateTime = new Date(data.clientDateTime);
+                    document.getElementById('clientTime').textContent = clientDateTime.toLocaleString();
                 };
 
                 function syncTime() {
+                    // Add 3 seconds to the client's time
+                    clientDateTime.setSeconds(clientDateTime.getSeconds() + 3);
                     fetch('/sync', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify({ clientDateTime })
+                        body: JSON.stringify({ clientDateTime: clientDateTime.toISOString() })
                     })
                     .then(response => response.text())
                     .then(data => {
@@ -186,7 +187,6 @@ app.post('/sync', (req, res) => {
         res.send('Time synchronized successfully.');
     });
 });
-
 
 app.get('/startScan', (req, res) => {
     exec('./start_scan.sh', (error, stdout, stderr) => {
