@@ -1,0 +1,11 @@
+[Unit]
+Description=My Script Service
+After=network.target
+
+[Service]
+User=Admin1
+WorkingDirectory=/home/Admin1/Downloads/RaspiScanner/Server
+ExecStart=/bin/bash /home/Admin1/Downloads/RaspiScanner/Server/buttonHotspot.sh
+
+[Install]
+WantedBy=multi-user.target

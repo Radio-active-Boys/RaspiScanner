@@ -1,0 +1,56 @@
+To run these services (`server.service`, `configWiFiServer.service`, `buttonHotspot.service`) on your Raspberry Pi, you'll follow these steps:
+
+1. **Copy Service Files**: Ensure each service file is in the `/etc/systemd/system/` directory. Since you have already defined these service files correctly, you can copy them as follows (if not already done):
+
+   ```bash
+   sudo cp /home/Admin1/Downloads/RaspiScanner/Server/server.service /etc/systemd/system/
+   sudo cp /home/Admin1/Downloads/RaspiScanner/Server/configWiFiServer.service /etc/systemd/system/
+   sudo cp /home/Admin1/Downloads/RaspiScanner/Server/buttonHotspot.service /etc/systemd/system/
+   ```
+
+2. **Set Permissions**: Ensure the permissions are correctly set for each service file:
+
+   ```bash
+   sudo chmod 644 /etc/systemd/system/server.service
+   sudo chmod 644 /etc/systemd/system/configWiFiServer.service
+   sudo chmod 644 /etc/systemd/system/buttonHotspot.service
+   ```
+
+3. **Reload systemd**: Reload systemd to read the new or updated service files:
+
+   ```bash
+   sudo systemctl daemon-reload
+   ```
+
+4. **Enable and Start Services**: Enable each service to start on boot and then start them:
+
+   ```bash
+   sudo systemctl enable server.service
+   sudo systemctl start server.service
+
+   sudo systemctl enable configWiFiServer.service
+   sudo systemctl start configWiFiServer.service
+
+   sudo systemctl enable buttonHotspot.service
+   sudo systemctl start buttonHotspot.service
+   ```
+
+5. **Verify Status**: Check the status of each service to ensure they are running correctly:
+
+   ```bash
+   sudo systemctl status server.service
+   sudo systemctl status configWiFiServer.service
+   sudo systemctl status buttonHotspot.service
+   ```
+
+   This will display information about whether each service is active, its main process ID, and any recent logs or errors.
+
+6. **Troubleshooting**: If any service fails to start, check the service's journal for more details:
+
+   ```bash
+   sudo journalctl -xe -u service_name.service
+   ```
+
+   Replace `service_name.service` with `server.service`, `configWiFiServer.service`, or `buttonHotspot.service` depending on which service you are troubleshooting.
+
+By following these steps, you should be able to successfully run your services on your Raspberry Pi. Adjust paths and permissions as needed based on your specific setup and ensure that the shell scripts (`server.sh`, `configHotspot.sh`, `buttonHotspot.sh`) are executable and properly located in `/home/Admin1/Downloads/RaspiScanner/Server`.

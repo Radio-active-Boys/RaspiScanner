@@ -1,0 +1,36 @@
+[33m[nodemon] 3.1.4[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node server.js`[39m
+Server is running on https://localhost:8080
+Server is running on https://127.0.0.1:8080
+WebSocket client connected.
+WebSocket client disconnected.
+WebSocket client connected.
+Raspberry Pi time synchronized to: 2024-06-27 02:02:53
+WebSocket client disconnected.
+WebSocket client connected.
+Raspberry Pi time synchronized to: 2024-06-27 03:03:47
+WebSocket client disconnected.
+WebSocket client connected.
+WebSocket client disconnected.
+WebSocket client connected.
+WebSocket client disconnected.
+WebSocket client connected.
+WebSocket client disconnected.
+WebSocket client connected.
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+Server is running on https://localhost:8080
+Server is running on https://172.21.183.74:8080
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+Server is running on https://localhost:8080
+Server is running on https://172.21.183.74:8080
+WebSocket client connected.
+WebSocket client disconnected.
+WebSocket client connected.
+WebSocket client disconnected.
+WebSocket client connected.
+WebSocket client disconnected.
