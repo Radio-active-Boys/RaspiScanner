@@ -11,7 +11,8 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-json_file_path = "/home/Admin1/Downloads/RaspiScanner/BluetoothScanner/data_27_june.json"
+current_time = datetime.now().strftime("data_%d_%H_%M.json")
+json_file_path = f"/home/Admin1/Downloads/RaspiScanner/BluetoothScanner/{current_time}"
 node_name = "Admin1"
 
 if not os.path.exists(json_file_path):
